@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.ncsoft.platform.domain.ProductVO;
@@ -61,5 +62,13 @@ public class SampleController {
 	public void doF(String msg) {
 		
 		logger.info("doF called .... " + msg);
+	}
+	
+	@RequestMapping("/doJson")
+	public @ResponseBody ProductVO doJson() {
+		
+		ProductVO product = new ProductVO("sample", 100);
+		
+		return product;
 	}
 }
