@@ -1,4 +1,4 @@
-package com.ncsoft.platform;
+package com.ncsoft.platform.web;
 
 import java.text.DateFormat;
 import java.util.Date;
