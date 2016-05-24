@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.ncsoft.platform.domain.ProductVO;
+import com.ncsoft.platform.domain.Product;
 
 @Controller
 public class SampleController {
@@ -39,7 +39,7 @@ public class SampleController {
 	@RequestMapping("doD")
 	public String doD(Model model) {
 		
-		ProductVO product = new ProductVO("sample product", 10000);
+		Product product = new Product("sample product", 10000);
 		
 		logger.info("doD called");
 		
@@ -65,9 +65,9 @@ public class SampleController {
 	}
 	
 	@RequestMapping("/doJson")
-	public @ResponseBody ProductVO doJson() {
+	public @ResponseBody Product doJson() {
 		
-		ProductVO product = new ProductVO("sample", 100);
+		Product product = new Product("sample", 100);
 		
 		return product;
 	}

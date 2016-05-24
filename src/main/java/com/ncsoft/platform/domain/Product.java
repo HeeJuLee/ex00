@@ -1,10 +1,10 @@
 package com.ncsoft.platform.domain;
 
-public class ProductVO {
+public class Product {
 
 	private String name;
 	private double price;
-	public ProductVO(String name, double price) {
+	public Product(String name, double price) {
 		super();
 		this.name = name;
 		this.price = price;
