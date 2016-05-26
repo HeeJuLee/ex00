@@ -1,5 +1,8 @@
 package com.ncsoft.platform.persistence;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
@@ -27,4 +30,21 @@ public class MemberDaoImpl implements MemberDao {
 		sqlSession.insert(namespace + ".insertMember", member);
 	}
 
+	@Override
+	public Member readMember(String userid) throws Exception {
+		
+		return (Member) sqlSession.selectOne(namespace + ".readMember", userid);
+	}
+
+	@Override
+	public Member readWithPassword(String userid, String userpw) throws Exception {
+		
+		Map<String, Object> paramMap = new HashMap<String, Object>();
+		paramMap.put("userid", userid);
+		paramMap.put("userpw", userpw);
+		
+		return (Member) sqlSession.selectOne(namespace + ".readWithPassword", paramMap);
+	}
+
+	
 }

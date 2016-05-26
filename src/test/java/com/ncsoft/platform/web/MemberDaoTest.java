@@ -25,11 +25,25 @@ public class MemberDaoTest {
 	@Test
 	public void insertMemberTest() throws Exception {
 		Member member = new Member();
-		member.setUserid("1");
+		member.setUserid("3");
 		member.setUsername("user00");
 		member.setUserpw("user-passwd");
 		member.setEmail("user00@test.com");
 				
 		dao.insertMember(member);
+	}
+	
+	@Test
+	public void readMemberTest() throws Exception {
+		
+		Member member = dao.readMember("1");
+		System.out.println("member: " + member.getUserid() + ", " + member.getUsername());
+	}
+	
+	@Test
+	public void readMemberWithPasswordTest() throws Exception {
+		
+		Member member = dao.readWithPassword("2", "user-passwd");
+		System.out.println("member: " + member.getUserid() + ", " + member.getUsername());
 	}
 }

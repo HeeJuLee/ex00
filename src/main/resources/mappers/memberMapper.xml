@@ -13,4 +13,17 @@
  		insert into tbl_member (userid, userpw, username, email) values
  		(#{userid}, #{userpw}, #{username}, #{email})
  	</insert>
+ 	
+ 	<select id="readMember" resultType="com.ncsoft.platform.domain.Member">
+ 		select * 
+ 		from tbl_member 
+ 		where userid = #{userid}
+ 	</select>
+ 	
+ 	<select id="readWithPassword" resultType="com.ncsoft.platform.domain.Member">
+ 		select *
+ 		from tbl_member
+ 		where userid = #{userid} and userpw = #{userpw}
+ 	</select>
+ 	
  </mapper>
